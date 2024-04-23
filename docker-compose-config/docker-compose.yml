@@ -1,0 +1,55 @@
+version: '3.8'
+
+services:
+  appointment-managment:
+    build:
+      context: ./../appointment-managment
+      dockerfile: Dockerfile
+    ports:
+      - "8889:8889"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/common
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_PROFILES_ACTIVE: docker
+
+  appointment-notification:
+    build:
+      context: ./../appointment-notification
+      dockerfile: Dockerfile
+    ports:
+      - "8899:8899"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/common
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_PROFILES_ACTIVE: docker
+   
+  activemq:
+    image: vromero/activemq-artemis:2.16.0-alpine
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+    ports:
+      - "1883:1883"
+      - "8161:8161"
+      - "61616:61616"
+    environment:
+      ARTEMIS_USERNAME: artemis
+      ARTEMIS_PASSWORD: artemis
+      DISABLE_SECURITY: "true"
+
+  db:
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_DB: common
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+ 
