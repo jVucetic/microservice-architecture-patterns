@@ -1,4 +1,4 @@
-package com.example.consumer.config;
+package com.example.notification.config;
 
 import jakarta.jms.ConnectionFactory;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;

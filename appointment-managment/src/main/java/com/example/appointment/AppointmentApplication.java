@@ -1,13 +1,13 @@
-package com.example.consumer;
+package com.example.appointment;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AppointmentNotificationApplication {
+public class AppointmentApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AppointmentNotificationApplication.class, args);
+		SpringApplication.run(AppointmentApplication.class, args);
 	}
 
 }

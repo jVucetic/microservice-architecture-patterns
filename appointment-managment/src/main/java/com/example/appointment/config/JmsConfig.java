@@ -1,4 +1,4 @@
-package com.example.producer.config;
+package com.example.appointment.config;
 
 import jakarta.jms.ConnectionFactory;
 import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
