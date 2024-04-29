@@ -14,6 +14,6 @@ RUN ls -la /root
 
 FROM openjdk:21
 WORKDIR /app/
-COPY --from=BUILD_IMAGE /root/build/libs/*.jar ./consumer.jar
+COPY --from=BUILD_IMAGE /root/build/libs/*.jar ./appointment-notification.jar
 EXPOSE 8080
-CMD ["java","-jar","consumer.jar"]
+CMD ["java","-jar","appointment-notification.jar"]

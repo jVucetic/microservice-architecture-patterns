@@ -14,6 +14,6 @@ RUN ls -la /root
 
 FROM openjdk:21
 WORKDIR /app/
-COPY --from=BUILD_IMAGE /root/build/libs/*.jar ./producer.jar
+COPY --from=BUILD_IMAGE /root/build/libs/*.jar ./appointmnet-managment.jar
 EXPOSE 8080
-CMD ["java","-jar","producer.jar"]
+CMD ["java","-jar","appointmnet-managment.jar"]
