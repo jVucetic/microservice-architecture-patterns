@@ -1,5 +1,6 @@
 package com.example.notification.model;
 
+import com.example.notification.enums.Status;
 import com.example.notification.util.UUIDGenerator;
 import jakarta.persistence.Column;
 import jakarta.persistence.Id;
@@ -22,12 +23,20 @@ public class Notification {
     @Column(name = "id", unique = true, nullable = false, updatable = false)
     private UUID id;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "appointment_id")
+    private UUID appointmentId;
+
+    @Column(name = "content")
+    private String content;
+
+    @Column(name = "status")
+    private Status status;
 
     @Builder
-    public Notification(UUID id, String description) {
+    public Notification(UUID id, UUID appointmentId, String content, Status status) {
         this.id = id != null ? id : UUIDGenerator.generateUUID();
-        this.description = description;
+        this.appointmentId = appointmentId;
+        this.content = content;
+        this.status = status;
     }
 }

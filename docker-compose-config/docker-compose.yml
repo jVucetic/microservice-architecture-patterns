@@ -28,6 +28,13 @@ services:
       SPRING_DATASOURCE_USERNAME: postgres
       SPRING_DATASOURCE_PASSWORD: postgres
       SPRING_PROFILES_ACTIVE: docker
+
+  orchestrator:
+    build:
+      context: ./../orchestrator
+      dockerfile: Dockerfile
+    ports:
+      - "8877:8877"
    
   activemq:
     image: vromero/activemq-artemis:2.16.0-alpine
