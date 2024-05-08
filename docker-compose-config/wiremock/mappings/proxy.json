@@ -1,0 +1,12 @@
+{
+  "mappings": [
+    {
+      "request": {
+        "urlPattern": "/api/v1/appointments.*"
+      },
+      "response": {
+        "proxyBaseUrl": "http://localhost:8871"
+      }
+    }
+  ]
+}
